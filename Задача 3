@@ -4,19 +4,28 @@ number = input()    # цифра должна присутствовать в б
 m_start, m_end = map(int, input().split())   # скорость
 number_start, number_end = map(float, input().split())   # ускорение
 object = list(map(str, input().split(', ')))  # обьекты
-used = []
+used1 = []
+used2 = []
 for i in range(int(input())):
-    boost = f'{random.uniform(m_start, m_end):.0f}'
-    speed = f'{random.uniform(number_start, number_end):.1f}'
+    boost = f'{random.uniform(number_start, number_end):.1f}'
+    speed = f'{random.uniform(m_start, m_end):.0f}'
+    while int(speed) % 10 != 0:
+        speed = f'{random.uniform(m_start, m_end):.0f}'
+        while speed in used2:
+            speed = f'{random.uniform(m_start, m_end):.0f}'
+    used2.append(speed)
     # generator_start = int(f'0')
     # generator_end = int(f'9')
     # rand_number = random.randint(generator_start, generator_end)
     # indeficator = f'{random.choice(alphabet)}{rand_number}'
     objects = random.choice(object)
+    while objects in used1:
+        objects = random.choice(object)
+    used1.append(objects)
     # while rand_number in used:
     #     rand_number = random.randint(generator_start, generator_end)
     # used.append(rand_number)
-    print(f"Rocket number бортовой номер flies with speed {boost} and acceleration {speed} towards the {objects}.")
+    print(f"Rocket number бортовой номер flies with speed {speed} and acceleration {boost} towards the {objects}.")
 
 # M 2
 # 21 357
