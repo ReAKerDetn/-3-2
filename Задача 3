@@ -1,0 +1,25 @@
+import random
+alphabet = "Q W E R T Y U I O P A S D F G H J K L Z X C V B N M".split()
+number = input()    # цифра должна присутствовать в бортовом номере
+m_start, m_end = map(int, input().split())   # скорость
+number_start, number_end = map(float, input().split())   # ускорение
+object = list(map(str, input().split(', ')))  # обьекты
+used = []
+for i in range(int(input())):
+    boost = f'{random.uniform(m_start, m_end):.0f}'
+    speed = f'{random.uniform(number_start, number_end):.1f}'
+    # generator_start = int(f'0')
+    # generator_end = int(f'9')
+    # rand_number = random.randint(generator_start, generator_end)
+    # indeficator = f'{random.choice(alphabet)}{rand_number}'
+    objects = random.choice(object)
+    # while rand_number in used:
+    #     rand_number = random.randint(generator_start, generator_end)
+    # used.append(rand_number)
+    print(f"Rocket number бортовой номер flies with speed {boost} and acceleration {speed} towards the {objects}.")
+
+# M 2
+# 21 357
+# 2.1 5.0
+# meteorite, asteroid, comet, dust, ice, block
+# 5
